@@ -1,4 +1,4 @@
-package com.example.testnotif;
+package com.example.smartwakeup;
 
 import android.content.Context;
 import android.content.Intent;

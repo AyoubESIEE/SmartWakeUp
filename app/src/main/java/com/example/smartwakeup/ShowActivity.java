@@ -1,4 +1,4 @@
-package com.example.testnotif;
+package com.example.smartwakeup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,7 +51,7 @@ public class ShowActivity extends AppCompatActivity {
         AlarmIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
         AlarmIntent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
         PendingIntent pi = PendingIntent.getBroadcast(this,requestCode, AlarmIntent, 0);
-        am.setAlarmClock(new AlarmManager.AlarmClockInfo(calendar.getTimeInMillis()),pi);
+        //am.setAlarmClock(new AlarmManager.AlarmClockInfo(calendar.getTimeInMillis()),pi);
         //Log.e(TAG, am.get);
         Toast.makeText(this,"Alarm Launched",Toast.LENGTH_SHORT).show();
     }

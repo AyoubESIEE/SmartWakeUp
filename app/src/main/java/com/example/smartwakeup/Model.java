@@ -1,4 +1,4 @@
-package com.example.testnotif;
+package com.example.smartwakeup;
 
 public class Model {
 
