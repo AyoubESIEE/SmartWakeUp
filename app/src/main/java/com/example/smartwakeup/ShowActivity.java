@@ -9,6 +9,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.util.Log;
@@ -53,6 +54,8 @@ public class ShowActivity extends AppCompatActivity {
         PendingIntent pi = PendingIntent.getBroadcast(this,requestCode, AlarmIntent, 0);
         //am.setAlarmClock(new AlarmManager.AlarmClockInfo(calendar.getTimeInMillis()),pi);
         //Log.e(TAG, am.get);
+        Log.e(TAG, "Request Code : " +requestCode);
+        Log.e(TAG, "Pending Intent : " +pi);
         Toast.makeText(this,"Alarm Launched",Toast.LENGTH_SHORT).show();
     }
 
@@ -69,6 +72,7 @@ public class ShowActivity extends AppCompatActivity {
         Log.e(TAG,"///////////////////////////////////////////////////////////DATA/////////////////////////////////////////////////////////////");
         Log.e(TAG,"Child ID :" + root.child("vevent").toString());
 
+
         root.child("vevent").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -76,11 +80,7 @@ public class ShowActivity extends AppCompatActivity {
                 Log.e(TAG,
                         "Children count = " + String.valueOf(count));
                 for (int i = 0; i < count; i++) {
-                    Log.e(TAG,
-                            snapshot.child(String.valueOf(i)).child("summary").toString());
 
-                    Log.e(TAG,
-                            snapshot.child(String.valueOf(i)).child("summary").getValue().toString());
                     Model model = snapshot.child(String.valueOf(i)).getValue(Model.class);
                     String[] out = model.getDtstart().split("T");
 

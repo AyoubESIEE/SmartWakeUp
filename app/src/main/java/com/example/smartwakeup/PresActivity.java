@@ -28,8 +28,5 @@ public class PresActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
 }
