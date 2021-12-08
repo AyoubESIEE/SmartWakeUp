@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "504941235251",
+    "firebase_url": "https://smart-alarm-5e9aa-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "smart-alarm-5e9aa",
+    "storage_bucket": "smart-alarm-5e9aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504941235251:android:ad7896e0ff78c5376f2746",
+        "android_client_info": {
+          "package_name": "com.example.smartwakeup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "504941235251-tnb5id5kfrula31rvle5ngsr420b3m5i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPkP89G4_nksyxetGY9m-3vbZsfN0GtQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "504941235251-tnb5id5kfrula31rvle5ngsr420b3m5i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504941235251:android:20d2c7d700266ad46f2746",
+        "android_client_info": {
+          "package_name": "com.example.testnotif"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "504941235251-a97r4ies2tq89fksqokglu8enr18m18n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.testnotif",
+            "certificate_hash": "1e251606d098b59d5af9257eb499a4dad6c1c0ae"
+          }
+        },
+        {
+          "client_id": "504941235251-tnb5id5kfrula31rvle5ngsr420b3m5i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPkP89G4_nksyxetGY9m-3vbZsfN0GtQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "504941235251-tnb5id5kfrula31rvle5ngsr420b3m5i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,23 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.2604166666666667" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/drawable/roundup.xml" value="0.2703125" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout-land/activity_alarm_set.xml" value="0.11022927689594356" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout-land/activity_import.xml" value="0.21516754850088182" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout-land/activity_main.xml" value="0.21516754850088182" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout-land/activity_pres.xml" value="0.32752992383025026" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout-land/activity_show.xml" value="0.1" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout-land/item.xml" value="0.1" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_alarm_set.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_import.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_pres.xml" value="0.4" />
-        <entry key="..\:/Users/Technicien GTB/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout-land/activity_main.xml" value="0.67" />
-        <entry key="..\:/Users/Technicien GTB/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout-land/activity_show.xml" value="0.1" />
-        <entry key="..\:/Users/Technicien GTB/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout-land/item.xml" value="0.303125" />
-        <entry key="..\:/Users/Technicien GTB/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout-land/layout.xml" value="0.303125" />
-        <entry key="..\:/Users/Technicien GTB/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_alarm_set.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Technicien GTB/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_import.xml" value="0.20572916666666666" />
-        <entry key="..\:/Users/Technicien GTB/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/Technicien GTB/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_pres.xml" value="0.34375" />
-        <entry key="..\:/Users/Technicien GTB/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_show.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Technicien GTB/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_pres.xml" value="0.264" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/layout.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2604166666666667" />
       </map>
     </option>
   </component>
