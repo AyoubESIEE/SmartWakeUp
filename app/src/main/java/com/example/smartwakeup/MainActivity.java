@@ -4,8 +4,6 @@ package com.example.smartwakeup;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;

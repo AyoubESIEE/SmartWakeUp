@@ -2,6 +2,7 @@ package com.example.smartwakeup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,7 +25,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 
 public class ShowActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -32,31 +36,113 @@ public class ShowActivity extends AppCompatActivity {
     private DatabaseReference root = db.getReference().child("/vcalendar/0");
     private MyAdapter adapter;
     private ArrayList<Model> list;
+    private CreateAlarmViewModel createAlarmViewModel;
     String TAG = "ShowActivity";
     String[] Htime = new String[3];
     String[] date = new String[3];
+    String[] Htime_2 = new String[3];
+    String[] date_2 = new String[3];
 
-    protected void setAlarm(String[] date, String[] time){
-        AlarmManager am =(AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        Calendar calendar = Calendar.getInstance();
-        int requestCode = (int) calendar.getTimeInMillis() / 1000;
-//        calendar.clear();
-//        calendar.set(calendar.YEAR, Integer.parseInt(date[0]));
-//        calendar.set(calendar.MONTH, Integer.parseInt(date[1]));
-//        calendar.set(calendar.DAY_OF_MONTH, Integer.parseInt(date[2]));
-//        calendar.set(calendar.HOUR_OF_DAY, Integer.parseInt(time[2]));
-//        calendar.set(calendar.MINUTE, Integer.parseInt(time[1]));
-        calendar.add(Calendar.SECOND,15);
-        Intent AlarmIntent = new Intent(this,MyAlarmReceiver.class);
-        AlarmIntent.putExtra("REQUEST_CODE", requestCode);
-        AlarmIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-        AlarmIntent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
-        PendingIntent pi = PendingIntent.getBroadcast(this,requestCode, AlarmIntent, 0);
-        //am.setAlarmClock(new AlarmManager.AlarmClockInfo(calendar.getTimeInMillis()),pi);
-        //Log.e(TAG, am.get);
-        Log.e(TAG, "Request Code : " +requestCode);
-        Log.e(TAG, "Pending Intent : " +pi);
-        Toast.makeText(this,"Alarm Launched",Toast.LENGTH_SHORT).show();
+    protected void setAlarm(){
+        int earliest_Hour;
+        String Current_day;
+        String Current_month;
+        Collections.sort(list, new Comparator<Model>() {
+            @Override
+            public int compare(Model model, Model t1) {
+                return model.getDtstart().compareTo(t1.getDtstart());
+            }
+        });
+        Current_month = list.get(0).getDtstart().substring(4,6);
+        Current_day = list.get(0).getDtstart().substring(6,8);
+        for(int i=1;i<list.size();i++){
+            String[] out = list.get(i).getDtstart().split("T");
+            String[] out2 = list.get(i-1).getDtstart().split("T");
+
+            date[0] = out[0].substring(0, 4); //année evenement actuel
+            date[1] = out[0].substring(4, 6); //mois evenement actuel
+            date[2] = out[0].substring(6, 8); //jour evenement actuel
+
+            Htime[0] = out[1].substring(0, 2);
+            int Hours = Integer.parseInt(Htime[0]) + 1;
+            Htime[0] = String.valueOf(Hours);
+            Htime[1] = out[1].substring(2, 4);
+            int Minutes = Integer.parseInt(Htime[1]);
+            Htime[2] = out[1].substring(4, 6);
+
+            date_2[1] = out2[0].substring(4, 6); // mois evenement précédent
+            date_2[2] = out2[0].substring(6, 8); // jour evenement précédent
+
+            Htime_2[0] = out2[1].substring(0, 2);
+            int Hours2 = Integer.parseInt(Htime_2[0]) + 1;
+            Htime_2[0] = String.valueOf(Hours2);
+
+            if (!date_2[1].equals(date[1])){
+                int alarmId = new Random().nextInt(Integer.MAX_VALUE);
+                    Alarm alarm = new Alarm(
+                            alarmId,
+                            Hours,
+                            Minutes,
+                            list.get(i).getSummary(),
+                            System.currentTimeMillis(),
+                            true,
+                            2021,
+                            Integer.parseInt(Current_month),
+                            Integer.parseInt(Current_day)
+
+                    );
+                createAlarmViewModel.insert(alarm);
+
+                alarm.schedule(ShowActivity.this);
+
+                Current_month = date[1];
+                Current_day = date[2];
+                earliest_Hour = Hours;
+
+
+            }
+            else {
+                if (!date_2[2].equals(date[2])){
+                    int alarmId = new Random().nextInt(Integer.MAX_VALUE);
+                    Alarm alarm = new Alarm(
+                            alarmId,
+                            Hours,
+                            Minutes,
+                            list.get(i).getSummary(),
+                            System.currentTimeMillis(),
+                            true,
+                            2021,
+                            Integer.parseInt(Current_month),
+                            Integer.parseInt(Current_day)
+
+                    );
+                    createAlarmViewModel.insert(alarm);
+
+                    alarm.schedule(ShowActivity.this);
+                    Current_month = date_2[1];
+                    Current_day = date[2];
+                    earliest_Hour = Hours;
+
+                }else {
+                    Current_month = date_2[1];
+                    Current_day = date_2[2];
+                    if (Hours > Hours2){
+                        earliest_Hour = Hours2;
+                    }
+                    else{
+                        earliest_Hour = Hours;
+                    }
+
+                }
+
+            }
+//            list.get(i).dtstart = date[2] + "/" + date[1] + "/" + date[0];
+//            list.get(i).time = Htime[0] + ":" + Htime[1] + ":" + Htime[2];
+        }
+
+
+
+
     }
 
     @Override
@@ -71,7 +157,7 @@ public class ShowActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         Log.e(TAG,"///////////////////////////////////////////////////////////DATA/////////////////////////////////////////////////////////////");
         Log.e(TAG,"Child ID :" + root.child("vevent").toString());
-
+        createAlarmViewModel = new ViewModelProvider(this).get(CreateAlarmViewModel.class);
 
         root.child("vevent").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -82,39 +168,51 @@ public class ShowActivity extends AppCompatActivity {
                 for (int i = 0; i < count; i++) {
 
                     Model model = snapshot.child(String.valueOf(i)).getValue(Model.class);
-                    String[] out = model.getDtstart().split("T");
-
-                    date[0] = out[0].substring(0, 4);
-                    date[1] = out[0].substring(4, 6);
-                    date[2] = out[0].substring(6, 8);
-
-                    Htime[0] = out[1].substring(0, 2);
-                    int Hours = Integer.parseInt(Htime[0]) + 1;
-                    Htime[0] = String.valueOf(Hours);
-                    Htime[1] = out[1].substring(2, 4);
-                    int Minutes = Integer.parseInt(Htime[1]);
-                    Htime[2] = out[1].substring(4, 6);
-                    model.dtstart = date[2] + "/" + date[1] + "/" + date[0];
-                    model.time = Htime[0] + ":" + Htime[1] + ":" + Htime[2];
                     list.add(model);
 
-                    if (Hours < 12) {
-
-//                        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
-//                        intent.putExtra(AlarmClock.EXTRA_HOUR,Hours-1);
-//                        intent.putExtra(AlarmClock.EXTRA_MINUTES,Minutes);
-//                        startActivity(intent);
 
 
 
-
-                    }
+//                    if (Hours < 12) {
+//
+//
+////                        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
+////                        intent.putExtra(AlarmClock.EXTRA_HOUR,Hours-1);
+////                        intent.putExtra(AlarmClock.EXTRA_MINUTES,Minutes);
+////                        startActivity(intent);
+//                        int alarmId = new Random().nextInt(Integer.MAX_VALUE);
+//
+//                        Alarm alarm = new Alarm(
+//                                alarmId,
+//                                Hours,
+//                                Minutes,
+//                                model.getSummary(),
+//                                System.currentTimeMillis(),
+//                                true,
+//                                false,
+//                                false,
+//                                false,
+//                                false,
+//                                false,
+//                                false,
+//                                false,
+//                                false
+//                        );
+//
+//                        createAlarmViewModel.insert(alarm);
+//
+//                        alarm.schedule(ShowActivity.this);
+//
+//
+//                    }
 
 
 
                 }
+                setAlarm();
                 adapter.notifyDataSetChanged();
-                setAlarm(date,Htime);
+
+
 
             }
 
