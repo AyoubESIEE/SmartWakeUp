@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.2604166666666667" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/drawable/custom_button.xml" value="0.3828125" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/drawable/roundup.xml" value="0.2703125" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout-land/activity_alarm_set.xml" value="0.11022927689594356" />
@@ -14,9 +15,12 @@
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout-land/activity_show.xml" value="0.1" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout-land/item.xml" value="0.1" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_alarm_set.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_import.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_import.xml" value="0.264" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_pres.xml" value="0.264" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/activity_show.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/calendar.xml" value="0.24427083333333333" />
+        <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/calendar_cell.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/layout/layout.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Ayoub/AndroidStudioProjects/SmartWakeUp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />

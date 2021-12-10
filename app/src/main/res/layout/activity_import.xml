@@ -21,29 +21,42 @@
         android:textColor="@color/lightbrown"
         android:textSize="50dp" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_height="45dp"
+        android:text="Importe ton calendrier ESIEE PARIS"
+        android:textColor="@color/brown"
+        android:textSize="20dp" />
+
     <Button
         android:id="@+id/boutton_import_google"
-        android:layout_width="380dp"
-        android:gravity="center"
-        android:layout_height="100dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:layout_gravity="center"
-        android:layout_margin="50dp"
-        android:background="@drawable/roundup"
+        android:layout_margin="20dp"
+        android:background="@drawable/custom_button"
+        android:gravity="center"
+        android:text="Click ICI pour Importer"
+        android:fontFamily="@font/brusher"
         android:textColor="@color/beige"
-        android:text="Importe ton calendrier depuis Google Calendar"
-        android:textSize="15dp" />
+        android:textSize="35dp" />
 
     <Button
         android:id="@+id/boutton_import_url"
-        android:layout_width="380dp"
-        android:gravity="center"
-        android:layout_height="100dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:layout_gravity="center"
-        android:layout_margin="50dp"
-        android:background="@drawable/roundup"
+        android:layout_margin="0dp"
+        android:background="@drawable/custom_button"
+        android:gravity="center"
+        android:text="Click ICI pour SET tes alarms"
+        android:fontFamily="@font/brusher"
         android:textColor="@color/beige"
-        android:text="Importe ton calendrier depuis une adresse URL"
-        android:textSize="15dp" />
+        android:textSize="25dp" />
+
 
 
 </LinearLayout>

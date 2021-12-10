@@ -1,37 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="110dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="8dp"
-    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
     android:padding="10dp"
-    android:layout_margin="10dp">
+    app:cardBackgroundColor="@color/lightbrown"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/lightbrown"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/brown"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Summary :"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textColor="@color/lightbrown"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/summary_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nom du cours"
-                android:textStyle="bold"
-                android:textSize="17sp"
                 android:layout_marginStart="20dp"
-                android:id="@+id/summary_text"/>
+                android:text="Nom du cours"
+                android:textColor="@color/lightbrown"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -45,17 +51,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Date :"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/date_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date du cours"
-                android:textStyle="bold"
-                android:textSize="17sp"
                 android:layout_marginStart="20dp"
-                android:id="@+id/date_text"/>
+                android:text="Date du cours"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -85,7 +91,6 @@
 
 
     </LinearLayout>
-
 
 
 </androidx.cardview.widget.CardView>
