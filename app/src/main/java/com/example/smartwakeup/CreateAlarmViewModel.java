@@ -17,4 +17,5 @@ public class CreateAlarmViewModel extends AndroidViewModel {
     public void insert(Alarm alarm) {
         alarmRepository.insert(alarm);
     }
+    public int CheckAlarmExist(Alarm alarm) {return alarmRepository.CheckAlarmExist(alarm);}
 }

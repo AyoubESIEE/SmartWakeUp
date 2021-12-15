@@ -48,5 +48,8 @@ public class AlarmRecyclerViewAdapter extends RecyclerView.Adapter<AlarmViewHold
         super.onViewRecycled(holder);
         holder.alarmStarted.setOnCheckedChangeListener(null);
     }
+    public Alarm getAlarmAtPosition(int position){
+        return alarms.get(position);
+    }
 }
 

@@ -43,6 +43,30 @@ public class ShowActivity extends AppCompatActivity {
     String[] Htime_2 = new String[3];
     String[] date_2 = new String[3];
 
+
+
+    protected void editListe(){
+        for (int i=0;i<list.size();i++) {
+
+            String[] out = list.get(i).getDtstart().split("T");
+
+            date[0] = out[0].substring(0, 4); //année evenement actuel
+            date[1] = out[0].substring(4, 6); //mois evenement actuel
+            date[2] = out[0].substring(6, 8); //jour evenement actuel
+
+            Htime[0] = out[1].substring(0, 2);
+            int Hours = Integer.parseInt(Htime[0]) + 1;
+            Htime[0] = String.valueOf(Hours);
+            Htime[1] = out[1].substring(2, 4);
+            int Minutes = Integer.parseInt(Htime[1]);
+            Htime[2] = out[1].substring(4, 6);
+
+
+            list.get(i).dtstart = date[2] + "/" + date[1] + "/" + date[0];
+            list.get(i).time = Htime[0] + ":" + Htime[1] + ":" + Htime[2];
+        }
+    }
+
     protected void setAlarm(){
         int earliest_Hour;
         String Current_day;
@@ -55,6 +79,7 @@ public class ShowActivity extends AppCompatActivity {
         });
         Current_month = list.get(0).getDtstart().substring(4,6);
         Current_day = list.get(0).getDtstart().substring(6,8);
+        earliest_Hour = Integer.parseInt(list.get(0).getDtstart().substring(10,12));
         for(int i=1;i<list.size();i++){
             String[] out = list.get(i).getDtstart().split("T");
             String[] out2 = list.get(i-1).getDtstart().split("T");
@@ -91,6 +116,8 @@ public class ShowActivity extends AppCompatActivity {
                             Integer.parseInt(Current_day)
 
                     );
+
+                    //if (createAlarmViewModel.CheckAlarmExist(alarm))
                 createAlarmViewModel.insert(alarm);
 
                 alarm.schedule(ShowActivity.this);
@@ -106,7 +133,7 @@ public class ShowActivity extends AppCompatActivity {
                     int alarmId = new Random().nextInt(Integer.MAX_VALUE);
                     Alarm alarm = new Alarm(
                             alarmId,
-                            Hours,
+                            earliest_Hour,
                             Minutes,
                             list.get(i).getSummary(),
                             System.currentTimeMillis(),
@@ -140,9 +167,6 @@ public class ShowActivity extends AppCompatActivity {
 //            list.get(i).time = Htime[0] + ":" + Htime[1] + ":" + Htime[2];
         }
 
-
-
-
     }
 
     @Override
@@ -169,7 +193,6 @@ public class ShowActivity extends AppCompatActivity {
 
                     Model model = snapshot.child(String.valueOf(i)).getValue(Model.class);
                     list.add(model);
-
 
 
 
@@ -206,13 +229,10 @@ public class ShowActivity extends AppCompatActivity {
 //
 //                    }
 
-
-
                 }
                 setAlarm();
+                editListe();
                 adapter.notifyDataSetChanged();
-
-
 
             }
 
