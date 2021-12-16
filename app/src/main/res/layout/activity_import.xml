@@ -33,8 +33,8 @@
 
     <Button
         android:id="@+id/boutton_import_google"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_margin="20dp"
         android:background="@drawable/custom_button"
@@ -42,12 +42,12 @@
         android:text="Click ICI pour Importer"
         android:fontFamily="@font/brusher"
         android:textColor="@color/beige"
-        android:textSize="35dp" />
+        android:textSize="10dp" />
 
     <Button
         android:id="@+id/boutton_import_url"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_margin="0dp"
         android:background="@drawable/custom_button"
@@ -55,7 +55,20 @@
         android:text="Click ICI pour SET tes alarms"
         android:fontFamily="@font/brusher"
         android:textColor="@color/beige"
-        android:textSize="25dp" />
+        android:textSize="10dp" />
+
+    <Button
+        android:id="@+id/boutton_timepicker"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_button"
+        android:gravity="center"
+        android:text="TimePicker"
+        android:fontFamily="@font/brusher"
+        android:textColor="@color/beige"
+        android:textSize="10dp" />
 
 
 

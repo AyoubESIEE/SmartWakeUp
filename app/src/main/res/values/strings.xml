@@ -1,3 +1,7 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SmartWakeUp</string>
+    <string name="choisi_combien_de_temps_avant_ton_cours_veux_tu_que_l_alarme_sonne">Choisi combien de temps avant ton cours veux-tu que l\'alarme sonne</string>
+    <string name="smart_nwakeup">SMART\nWakeUp</string>
+    <string name="selection">Selection</string>
+    <string name="smart_n2wakeup">SMART\nWakeUp</string>
 </resources>

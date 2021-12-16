@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Summary :"
+                android:text="Cours :"
                 android:textColor="@color/lightbrown"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -73,7 +73,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Time :"
+                android:text="Heure :"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
