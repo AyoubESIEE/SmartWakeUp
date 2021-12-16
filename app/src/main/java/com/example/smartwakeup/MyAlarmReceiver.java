@@ -12,9 +12,9 @@ import java.util.Calendar;
 
 
 public class MyAlarmReceiver extends BroadcastReceiver {
-    public static final String YEAR = "MONDAY";
-    public static final String MONTH = "TUESDAY";
-    public static final String DAY = "WEDNESDAY";
+    public static final String YEAR = "YEAR";
+    public static final String MONTH = "MONTH";
+    public static final String DAY = "DAY";
 //    public static final String THURSDAY = "THURSDAY";
 //    public static final String FRIDAY = "FRIDAY";
 //    public static final String SATURDAY = "SATURDAY";
@@ -31,6 +31,7 @@ public class MyAlarmReceiver extends BroadcastReceiver {
         else {
             String toastText = String.format("Alarm Received");
             Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
+            startAlarmService(context, intent);
 //            if (!intent.getBooleanExtra(RECURRING, false)) {
 //                startAlarmService(context, intent);
 //            }
@@ -83,6 +84,9 @@ public class MyAlarmReceiver extends BroadcastReceiver {
     private void startAlarmService(Context context, Intent intent) {
         Intent intentService = new Intent(context, AlarmService.class);
         intentService.putExtra(TITLE, intent.getStringExtra(TITLE));
+        intentService.putExtra(DAY, intent.getIntExtra(DAY,0));
+        intentService.putExtra(MONTH, intent.getIntExtra(MONTH,0));
+        intentService.putExtra(YEAR, intent.getIntExtra(YEAR,0));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(intentService);
         } else {

@@ -101,7 +101,7 @@ public class Alarm {
 //        return sunday;
 //    }
 
-    public void schedule(Context context) {
+    public boolean schedule(Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
         Intent intent = new Intent(context, MyAlarmReceiver.class);
@@ -115,29 +115,34 @@ public class Alarm {
 //        intent.putExtra(SUNDAY, sunday);
 
         intent.putExtra("TITLE", title);
-
         PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, 0);
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month-1);
+        calendar.set(Calendar.DAY_OF_MONTH, day);
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
-
+        Toast.makeText(context, "Calendar Time : " + calendar.getTimeInMillis() + "\nSystem Time : " + System.currentTimeMillis(), Toast.LENGTH_LONG).show();
         // if alarm time has already passed, increment day by 1
         if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
-            calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) + 1);
+            return false;
         }
 
+
+
+
 //        if (!recurring) {
-            String toastText = null;
+            //String toastText = null;
             try {
-                toastText = String.format("One Time Alarm %s scheduled for %s at %02d:%02d", title, DayUtil.toDay(calendar.get(Calendar.DAY_OF_WEEK)), hour, minute, alarmId);
+                //toastText = String.format("One Time Alarm %s scheduled for %s at %02d:%02d", title, DayUtil.toDay(calendar.get(Calendar.DAY_OF_WEEK)), hour, minute, alarmId);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            Toast.makeText(context, toastText, Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, toastText, Toast.LENGTH_LONG).show();
 
             alarmManager.setExact(
                     AlarmManager.RTC_WAKEUP,
@@ -159,7 +164,7 @@ public class Alarm {
 //        }
 
         this.started = true;
-
+        return true;
     }
     public void cancelAlarm(Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);

@@ -52,13 +52,13 @@ public class AlarmsListFragment extends Fragment implements OnToggleAlarmListene
         alarmsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         alarmsRecyclerView.setAdapter(alarmRecyclerViewAdapter);
 
-        addAlarm = view.findViewById(R.id.fragment_listalarms_addAlarm);
-        addAlarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Navigation.findNavController(v).navigate(R.id.action_alarmsListFragment_to_createAlarmFragment);
-            }
-        });
+//        addAlarm = view.findViewById(R.id.fragment_listalarms_addAlarm);
+//        addAlarm.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //Navigation.findNavController(v).navigate(R.id.action_alarmsListFragment_to_createAlarmFragment);
+//            }
+//        });
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT |ItemTouchHelper.RIGHT){
 

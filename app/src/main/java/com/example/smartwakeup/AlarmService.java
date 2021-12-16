@@ -1,8 +1,12 @@
 package com.example.smartwakeup;
 
 import static com.example.smartwakeup.App.CHANNEL_ID;
+import static com.example.smartwakeup.MyAlarmReceiver.DAY;
+import static com.example.smartwakeup.MyAlarmReceiver.MONTH;
 import static com.example.smartwakeup.MyAlarmReceiver.TITLE;
+import static com.example.smartwakeup.MyAlarmReceiver.YEAR;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -35,7 +39,7 @@ public class AlarmService extends Service {
         Intent notificationIntent = new Intent(this, RingActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
-        String alarmTitle = String.format("%s Alarm", intent.getStringExtra(TITLE));
+        @SuppressLint("DefaultLocale") String alarmTitle = String.format("%s %d/%d/%d Alarm", intent.getStringExtra(TITLE), intent.getIntExtra(DAY,0), intent.getIntExtra(MONTH,0), intent.getIntExtra(YEAR,0));
 
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(alarmTitle)

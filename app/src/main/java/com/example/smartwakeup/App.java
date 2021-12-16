@@ -1,12 +1,15 @@
 package com.example.smartwakeup;
 
+
+
 import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.os.Build;
 
+
 public class App extends Application {
-    public static final String CHANNEL_ID = "ALARM_SERVICE_CHANNEL";
+    public static final String CHANNEL_ID = "ALARM_SERVICE_CHANNEL_TEST";
 
     @Override
     public void onCreate() {
@@ -23,7 +26,7 @@ public class App extends Application {
                     NotificationManager.IMPORTANCE_DEFAULT
             );
 
-            NotificationManager manager = getSystemService(NotificationManager.class);
+            NotificationManager manager = (NotificationManager) getSystemService(NotificationManager.class);
             manager.createNotificationChannel(serviceChannel);
         }
     }

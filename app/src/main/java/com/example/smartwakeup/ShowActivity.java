@@ -71,6 +71,7 @@ public class ShowActivity extends AppCompatActivity {
         int earliest_Hour;
         String Current_day;
         String Current_month;
+        Calendar calendar = Calendar.getInstance();
         Collections.sort(list, new Comparator<Model>() {
             @Override
             public int compare(Model model, Model t1) {
@@ -79,8 +80,12 @@ public class ShowActivity extends AppCompatActivity {
         });
         Current_month = list.get(0).getDtstart().substring(4,6);
         Current_day = list.get(0).getDtstart().substring(6,8);
-        earliest_Hour = Integer.parseInt(list.get(0).getDtstart().substring(10,12));
-        for(int i=1;i<list.size();i++){
+        earliest_Hour = Integer.parseInt(list.get(0).getDtstart().substring(9,11));
+        String alarm_summary = list.get(0).getSummary();
+
+
+
+         for(int i=1;i<list.size();i++){
             String[] out = list.get(i).getDtstart().split("T");
             String[] out2 = list.get(i-1).getDtstart().split("T");
 
@@ -102,40 +107,18 @@ public class ShowActivity extends AppCompatActivity {
             int Hours2 = Integer.parseInt(Htime_2[0]) + 1;
             Htime_2[0] = String.valueOf(Hours2);
 
-            if (!date_2[1].equals(date[1])){
-                int alarmId = new Random().nextInt(Integer.MAX_VALUE);
-                    Alarm alarm = new Alarm(
-                            alarmId,
-                            Hours,
-                            Minutes,
-                            list.get(i).getSummary(),
-                            System.currentTimeMillis(),
-                            true,
-                            2021,
-                            Integer.parseInt(Current_month),
-                            Integer.parseInt(Current_day)
+            int compareDay = calendar.get(Calendar.DAY_OF_MONTH);
+            int compareMonth = calendar.get(Calendar.MONTH);
+            int compareYear = calendar.get(Calendar.YEAR);
+            if ( !(compareYear >= Integer.parseInt(date[0]) && compareMonth >= Integer.parseInt(date[1]))){
+                if (!date_2[1].equals(date[1])){
 
-                    );
-
-                    //if (createAlarmViewModel.CheckAlarmExist(alarm))
-                createAlarmViewModel.insert(alarm);
-
-                alarm.schedule(ShowActivity.this);
-
-                Current_month = date[1];
-                Current_day = date[2];
-                earliest_Hour = Hours;
-
-
-            }
-            else {
-                if (!date_2[2].equals(date[2])){
                     int alarmId = new Random().nextInt(Integer.MAX_VALUE);
                     Alarm alarm = new Alarm(
                             alarmId,
                             earliest_Hour,
                             Minutes,
-                            list.get(i).getSummary(),
+                            alarm_summary,
                             System.currentTimeMillis(),
                             true,
                             2021,
@@ -143,28 +126,119 @@ public class ShowActivity extends AppCompatActivity {
                             Integer.parseInt(Current_day)
 
                     );
-                    createAlarmViewModel.insert(alarm);
 
-                    alarm.schedule(ShowActivity.this);
-                    Current_month = date_2[1];
-                    Current_day = date[2];
-                    earliest_Hour = Hours;
-
-                }else {
-                    Current_month = date_2[1];
-                    Current_day = date_2[2];
-                    if (Hours > Hours2){
-                        earliest_Hour = Hours2;
+                    if (createAlarmViewModel.CheckAlarmExist(alarm) >= 1){
                     }
                     else{
+
+                        if(alarm.schedule(ShowActivity.this)) createAlarmViewModel.insert(alarm);
+                    }
+
+                    Current_month = date[1];
+                    Current_day = date[2];
+                    earliest_Hour = Hours;
+                    alarm_summary = list.get(i).getSummary();
+
+                    if (i== list.size()-1){
+
+                        int lastalarmId = new Random().nextInt(Integer.MAX_VALUE);
+                        Alarm lastalarm = new Alarm(
+                                lastalarmId,
+                                earliest_Hour,
+                                Minutes,
+                                list.get(i).getSummary(),
+                                System.currentTimeMillis(),
+                                true,
+                                2021,
+                                Integer.parseInt(Current_month),
+                                Integer.parseInt(Current_day)
+
+                        );
+                        if (createAlarmViewModel.CheckAlarmExist(lastalarm) >= 1){
+                        }
+                        else{
+                            if(lastalarm.schedule(ShowActivity.this)) createAlarmViewModel.insert(lastalarm);
+                        }
+
+                    }
+
+
+                }
+                else {
+                    if (!date_2[2].equals(date[2])){
+                        int alarmId = new Random().nextInt(Integer.MAX_VALUE);
+                        Alarm alarm = new Alarm(
+                                alarmId,
+                                earliest_Hour,
+                                Minutes,
+                                alarm_summary,
+                                System.currentTimeMillis(),
+                                true,
+                                2021,
+                                Integer.parseInt(Current_month),
+                                Integer.parseInt(Current_day)
+
+                        );
+                        if (createAlarmViewModel.CheckAlarmExist(alarm) >= 1){
+
+                        }
+                        else{
+                            if(alarm.schedule(ShowActivity.this)) createAlarmViewModel.insert(alarm);
+                        }
+                        Current_month = date_2[1];
+                        Current_day = date[2];
                         earliest_Hour = Hours;
+                        alarm_summary = list.get(i).getSummary();
+
+                        if (i== list.size()-1){
+
+                            int lastalarmId_HOUR = new Random().nextInt(Integer.MAX_VALUE);
+                            Alarm lastalarm = new Alarm(
+                                    lastalarmId_HOUR,
+                                    earliest_Hour,
+                                    Minutes,
+                                    alarm_summary,
+                                    System.currentTimeMillis(),
+                                    true,
+                                    2021,
+                                    Integer.parseInt(Current_month),
+                                    Integer.parseInt(Current_day)
+
+                            );
+                            if (createAlarmViewModel.CheckAlarmExist(lastalarm) >= 1){
+                            }
+                            else{
+                                if(lastalarm.schedule(ShowActivity.this)) createAlarmViewModel.insert(lastalarm);
+                            }
+
+                        }
+
+                    }else {
+                        Current_month = date_2[1];
+                        Current_day = date_2[2];
+                        if (Hours > Hours2){
+                            if (earliest_Hour > Hours2) {
+                                earliest_Hour = Hours2;
+                                alarm_summary = list.get(i-1).getSummary();
+                            }
+
+                        }
+                        else{
+                            if (earliest_Hour > Hours){
+                                alarm_summary = list.get(i).getSummary();
+                                earliest_Hour = Hours;
+                            }
+
+
+                        }
+
                     }
 
                 }
 
             }
-//            list.get(i).dtstart = date[2] + "/" + date[1] + "/" + date[0];
-//            list.get(i).time = Htime[0] + ":" + Htime[1] + ":" + Htime[2];
+
+
         }
 
     }
@@ -193,7 +267,6 @@ public class ShowActivity extends AppCompatActivity {
 
                     Model model = snapshot.child(String.valueOf(i)).getValue(Model.class);
                     list.add(model);
-
 
 
 //                    if (Hours < 12) {
