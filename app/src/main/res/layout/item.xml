@@ -21,20 +21,15 @@
             android:background="@color/brown"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cours :"
-                android:textColor="@color/lightbrown"
-                android:textSize="20sp"
-                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/summary_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:text="Nom du cours"
+                android:layout_marginStart="0dp"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:textColor="@color/lightbrown"
                 android:textSize="17sp"
                 android:textStyle="bold" />

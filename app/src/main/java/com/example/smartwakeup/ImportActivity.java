@@ -9,23 +9,14 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ImportActivity extends AppCompatActivity {
-    private Button Popol,pipil, TimePick;
+    private Button pipil, TimePick;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_import);
-        Popol = findViewById(R.id.boutton_import_google);
         pipil = findViewById(R.id.boutton_import_url);
         TimePick = findViewById(R.id.boutton_timepicker);
-        Popol.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //setContentView(R.layout.activity_pres);
-                Intent ShowActivity = new Intent(ImportActivity.this, ShowActivity.class);
-                startActivity(ShowActivity);
 
-            }
-        });
         pipil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

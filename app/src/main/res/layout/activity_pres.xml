@@ -47,7 +47,7 @@
         android:text="SmartWakeup va te permettre d'importer ton calendrier de
 google calendar ou d'un site web. Ainsi, cette application te
 permettra de mieux t'organiser."
-        android:textColor="@color/lightbrown"
+        android:textColor="@color/brown"
         android:textSize="12dp" />
 
     <ImageView
@@ -76,7 +76,7 @@ du matin en fonction de ton emplois du temps. Que ce soit
 pour tes cours, ton activité pro ou tes loisirs. Tu n'as plus
 qu'a faire confiance à SmartWakeup pour organiser tes
 reveils."
-        android:textColor="@color/lightbrown"
+        android:textColor="@color/brown"
         android:textSize="12dp" />
 
     <Button

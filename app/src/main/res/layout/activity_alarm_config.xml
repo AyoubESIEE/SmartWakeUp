@@ -28,8 +28,8 @@
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_marginTop="5dp"
-        android:layout_height="70dp"
-        android:text="@string/choisi_combien_de_temps_avant_ton_cours_veux_tu_que_l_alarme_sonne"
+        android:layout_height="100dp"
+        android:text="Click sur selection pour Choisir combien de temps avant ton cours, tu veux configurer ton alarme puis appuie sur lancer pour la génération de tes cours et alarmes"
         android:textColor="@color/brown"
         android:textSize="20sp" />
 
@@ -46,7 +46,20 @@
         android:onClick="popTimePicker"
         android:text="@string/selection"
         android:textSize="30sp"
-        android:textColor="@color/lightbrown"
+        android:textColor="@color/beige"
         android:background="@color/brown"/>
+
+    <Button
+        android:id="@+id/boutton_import_google"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_margin="2dp"
+        android:background="@drawable/roundup"
+        android:fontFamily="@font/brusher"
+        android:gravity="center"
+        android:text="LANCER"
+        android:textColor="@color/beige"
+        android:textSize="30dp" />
 
 </LinearLayout>

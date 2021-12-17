@@ -19,65 +19,52 @@
         android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:fontFamily="@font/brusher"
-        android:gravity="center"
-        android:text=" SMART\nWakeUp"
-        android:textColor="@color/lightbrown"
-        android:textSize="50dp" />
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="50dp"
+            android:fontFamily="@font/brusher"
+            android:gravity="center"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text=" SMART\nWakeUp"
+            android:textColor="@color/lightbrown"
+            android:textSize="50dp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_height="45dp"
-        android:text="Importe ton calendrier ESIEE PARIS"
-        android:textColor="@color/brown"
-        android:textSize="20dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="bottom">
 
-    <Button
-        android:id="@+id/boutton_import_google"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:background="@drawable/custom_button"
-        android:gravity="center"
-        android:text="Click ICI pour Importer"
-        android:fontFamily="@font/brusher"
-        android:textColor="@color/beige"
-        android:textSize="10dp" />
+                <Button
+                    android:id="@+id/boutton_import_url"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="left"
+                    android:layout_margin="2dp"
+                    android:layout_weight="3"
+                    android:background="@color/brown"
+                    android:fontFamily="@font/brusher"
+                    android:gravity="center"
+                    android:text="Click ICI pour Voir tes alarmes"
+                    android:textColor="@color/beige"
+                    android:textSize="20dp" />
 
-    <Button
-        android:id="@+id/boutton_import_url"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_margin="0dp"
-        android:background="@drawable/custom_button"
-        android:gravity="center"
-        android:text="Click ICI pour SET tes alarms"
-        android:fontFamily="@font/brusher"
-        android:textColor="@color/beige"
-        android:textSize="10dp" />
-
-    <Button
-        android:id="@+id/boutton_timepicker"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:background="@drawable/custom_button"
-        android:gravity="center"
-        android:text="TimePicker"
-        android:fontFamily="@font/brusher"
-        android:textColor="@color/beige"
-        android:textSize="10dp" />
+                <Button
+                    android:id="@+id/boutton_timepicker"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="right"
+                    android:layout_margin="2dp"
+                    android:layout_weight="3"
+                    android:background="@color/brown"
+                    android:fontFamily="@font/brusher"
+                    android:gravity="center"
+                    android:text="Click ICI pour Importer et configurer tes alarmes"
+                    android:textColor="@color/beige"
+                    android:textSize="20dp" />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

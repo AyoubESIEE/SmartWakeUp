@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,7 @@ public class AlarmConfig extends AppCompatActivity
 {
     Button timeButton;
     int hour, minute;
+    private Button Popol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -22,6 +24,17 @@ public class AlarmConfig extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_config);
         timeButton = findViewById(R.id.timeButton);
+        Popol = findViewById(R.id.boutton_import_google);
+
+        Popol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //setContentView(R.layout.activity_pres);
+                Intent ShowActivity = new Intent(AlarmConfig.this, ShowActivity.class);
+                startActivity(ShowActivity);
+
+            }
+        });
     }
 
     public void popTimePicker(View view)
