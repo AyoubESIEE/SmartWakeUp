@@ -15,7 +15,11 @@
             android:id="@+id/fragment_listalarms_myAlarms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="My Alarms"
+            android:text="Mes Alarmes"
+            android:fontFamily="@font/brusher"
+            android:background="@color/brown"
+            android:textSize="25dp"
+            android:textColor="@color/lightbrown"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintTop_toTopOf="parent" />

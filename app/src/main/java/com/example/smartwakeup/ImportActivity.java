@@ -9,15 +9,15 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ImportActivity extends AppCompatActivity {
-    private Button pipil, TimePick;
+    private Button urlImportBtn, TimePick;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_import);
-        pipil = findViewById(R.id.boutton_import_url);
+        urlImportBtn = findViewById(R.id.boutton_import_url);
         TimePick = findViewById(R.id.boutton_timepicker);
 
-        pipil.setOnClickListener(new View.OnClickListener() {
+        urlImportBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //setContentView(R.layout.activity_pres);

@@ -10,14 +10,12 @@
     android:padding="8dp">
 
 
-
-
-
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:layout_weight="1"
         android:fontFamily="@font/brusher"
         android:gravity="center"
         android:text=" SMART\nWakeUp"
@@ -27,23 +25,26 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="110dp"
+        android:layout_weight="1"
+        android:gravity="center"
         android:src="@drawable/calendar_image" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="27dp"
+        android:layout_weight="1"
+        android:gravity="center"
         android:text="Importe ton calendrier"
         android:textColor="@color/brown" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="45dp"
+        android:layout_weight="1"
+        android:gravity="center"
         android:text="SmartWakeup va te permettre d'importer ton calendrier de
 google calendar ou d'un site web. Ainsi, cette application te
 permettra de mieux t'organiser."
@@ -53,24 +54,27 @@ permettra de mieux t'organiser."
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="110dp"
+        android:layout_weight="1"
+        android:gravity="center"
         android:src="@drawable/alarmset_image" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:gravity="center"
         android:text="Configuration intelligente de ton alarme"
         android:textColor="@color/brown" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="64dp"
+        android:layout_weight="1"
+        android:gravity="center"
         android:text="SmartWakeup peut configurer automatiquement ton reveil
 du matin en fonction de ton emplois du temps. Que ce soit
 pour tes cours, ton activité pro ou tes loisirs. Tu n'as plus
@@ -81,15 +85,16 @@ reveils."
 
     <Button
         android:id="@+id/boutton_suivant"
-        android:layout_width="140dp"
-        android:gravity="center"
-        android:layout_height="65dp"
-        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|center"
         android:layout_margin="10dp"
-        android:fontFamily="@font/brusher"
+        android:layout_weight="1"
         android:background="@drawable/roundup"
-        android:textColor="@color/beige"
+        android:fontFamily="@font/brusher"
+        android:gravity="center"
         android:text="Suivant"
+        android:textColor="@color/beige"
         android:textSize="25dp" />
 
 

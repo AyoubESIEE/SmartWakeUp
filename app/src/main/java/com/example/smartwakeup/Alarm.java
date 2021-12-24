@@ -126,7 +126,7 @@ public class Alarm {
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
-        Toast.makeText(context, "Calendar Time : " + calendar.getTimeInMillis() + "\nSystem Time : " + System.currentTimeMillis(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, "Calendar Time : " + calendar.getTimeInMillis() + "\nSystem Time : " + System.currentTimeMillis(), Toast.LENGTH_LONG).show();
         // if alarm time has already passed, increment day by 1
         if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
             return false;
@@ -136,13 +136,13 @@ public class Alarm {
 
 
 //        if (!recurring) {
-            //String toastText = null;
+            String toastText = null;
             try {
-                //toastText = String.format("One Time Alarm %s scheduled for %s at %02d:%02d", title, DayUtil.toDay(calendar.get(Calendar.DAY_OF_WEEK)), hour, minute, alarmId);
+                toastText = String.format("L'alarme %s est prévue pour %s à %02d:%02d", title, DayUtil.toDay(calendar.get(Calendar.DAY_OF_WEEK)), hour, minute, alarmId);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            //Toast.makeText(context, toastText, Toast.LENGTH_LONG).show();
+            Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
 
             alarmManager.setExact(
                     AlarmManager.RTC_WAKEUP,
