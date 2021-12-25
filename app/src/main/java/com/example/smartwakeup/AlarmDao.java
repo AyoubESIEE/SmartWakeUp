@@ -8,7 +8,9 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.List;
-
+/***
+* Interface permettant la formation de "Query" pour la base de données ROOM
+* */
 @Dao
 public interface AlarmDao {
     @Insert

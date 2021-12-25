@@ -3,6 +3,10 @@ package com.example.smartwakeup;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+/**
+ *
+ *Création de l'Activity qui affiche les alarmes prévues
+ */
 
 public class AlarmListActivity extends AppCompatActivity {
 

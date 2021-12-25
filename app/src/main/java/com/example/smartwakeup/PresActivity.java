@@ -21,7 +21,6 @@ public class PresActivity extends AppCompatActivity {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //setContentView(R.layout.activity_pres);
                 Intent impActivityIntent = new Intent(PresActivity.this, ImportActivity.class);
                 startActivity(impActivityIntent);
 

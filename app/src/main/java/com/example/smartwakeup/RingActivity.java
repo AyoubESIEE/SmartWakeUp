@@ -18,6 +18,9 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/***
+ * Activity qui correspond à l'affichage de l'alarme apres avoir click sur la notification
+ */
 public class RingActivity extends AppCompatActivity {
     @BindView(R.id.activity_ring_dismiss) Button dismiss;
     @BindView(R.id.activity_ring_snooze) Button snooze;

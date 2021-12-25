@@ -7,7 +7,9 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.os.Build;
 
-
+/***
+ * Création d'un channel pour les notifications et l'accés à l'alarme
+ */
 public class App extends Application {
     public static final String CHANNEL_ID = "ALARM_SERVICE_CHANNEL_TEST";
 

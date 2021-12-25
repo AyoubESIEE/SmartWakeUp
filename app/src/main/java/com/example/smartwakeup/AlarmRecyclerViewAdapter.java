@@ -11,6 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/***
+ * Fichier permettant la création de liste pour l'affichage des alarmes dans la RecycleView
+ *
+***/
 public class AlarmRecyclerViewAdapter extends RecyclerView.Adapter<AlarmViewHolder> {
     private List<Alarm> alarms;
     private OnToggleAlarmListener listener;

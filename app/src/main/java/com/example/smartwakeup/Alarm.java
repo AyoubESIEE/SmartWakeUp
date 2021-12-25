@@ -16,7 +16,9 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.Calendar;
-
+/***
+ * Class qui Récupère les informations de la date et des horaires pour les alarmes et les planifient
+ */
 @Entity(tableName = "alarm_table")
 public class Alarm {
     @PrimaryKey
@@ -29,7 +31,7 @@ public class Alarm {
     private int month, day;
     private String title;
     private long created;
-
+    // Crée un Objet de type alarme qui contient toutes les informations pour la configuration d'alarme
     public Alarm(int alarmId, int hour, int minute, String title,long created, boolean started,int year,int month,int day) {
         this.alarmId = alarmId;
         this.hour = hour;
@@ -40,12 +42,6 @@ public class Alarm {
 
         this.month = month;
         this.day = day;
-//        this.wednesday = wednesday;
-//        this.thursday = thursday;
-//        this.friday = friday;
-//        this.saturday = saturday;
-//        this.sunday = sunday;
-
         this.title = title;
         this.created = created;
     }
@@ -81,25 +77,9 @@ public class Alarm {
         return day;
     }
 
-//    public boolean isWednesday() {
-//        return wednesday;
-//    }
-//
-//    public boolean isThursday() {
-//        return thursday;
-//    }
-//
-//    public boolean isFriday() {
-//        return friday;
-//    }
-//
-//    public boolean isSaturday() {
-//        return saturday;
-//    }
-//
-//    public boolean isSunday() {
-//        return sunday;
-//    }
+    /***
+     * Fonction qui planifi les alarmes dans une instance calendrier
+     */
 
     public boolean schedule(Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -108,11 +88,6 @@ public class Alarm {
         intent.putExtra(YEAR, year);
         intent.putExtra(MONTH, month);
         intent.putExtra(DAY, day);
-//        intent.putExtra(WEDNESDAY, wednesday);
-//        intent.putExtra(THURSDAY, thursday);
-//        intent.putExtra(FRIDAY, friday);
-//        intent.putExtra(SATURDAY, saturday);
-//        intent.putExtra(SUNDAY, sunday);
 
         intent.putExtra("TITLE", title);
         PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, 0);
@@ -127,7 +102,6 @@ public class Alarm {
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
         //Toast.makeText(context, "Calendar Time : " + calendar.getTimeInMillis() + "\nSystem Time : " + System.currentTimeMillis(), Toast.LENGTH_LONG).show();
-        // if alarm time has already passed, increment day by 1
         if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
             return false;
         }
@@ -149,23 +123,15 @@ public class Alarm {
                     calendar.getTimeInMillis(),
                     alarmPendingIntent
             );
- //       }
-//        else {
-//            String toastText = String.format("Recurring Alarm %s scheduled for %s at %02d:%02d", title, getRecurringDaysText(), hour, minute, alarmId);
-//            Toast.makeText(context, toastText, Toast.LENGTH_LONG).show();
-//
-//            final long RUN_DAILY = 24 * 60 * 60 * 1000;
-//            alarmManager.setRepeating(
-//                    AlarmManager.RTC_WAKEUP,
-//                    calendar.getTimeInMillis(),
-//                    RUN_DAILY,
-//                    alarmPendingIntent
-//            );
-//        }
 
         this.started = true;
         return true;
     }
+
+    /***
+     * Fonction permettant l'annulation des alarmes dans le pending intent
+     * @param context
+     */
     public void cancelAlarm(Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, MyAlarmReceiver.class);
@@ -178,36 +144,6 @@ public class Alarm {
         Log.i("cancel", toastText);
     }
 
-//    public String getRecurringDaysText() {
-//        if (!recurring) {
-//            return null;
-//        }
-//
-//        String days = "";
-//        if (monday) {
-//            days += "Mo ";
-//        }
-//        if (tuesday) {
-//            days += "Tu ";
-//        }
-//        if (wednesday) {
-//            days += "We ";
-//        }
-//        if (thursday) {
-//            days += "Th ";
-//        }
-//        if (friday) {
-//            days += "Fr ";
-//        }
-//        if (saturday) {
-//            days += "Sa ";
-//        }
-//        if (sunday) {
-//            days += "Su ";
-//        }
-//
-//        return days;
-//    }
 
     public String getTitle() {
         return title;

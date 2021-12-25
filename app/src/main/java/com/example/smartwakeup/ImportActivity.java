@@ -16,11 +16,10 @@ public class ImportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_import);
         urlImportBtn = findViewById(R.id.boutton_import_url);
         TimePick = findViewById(R.id.boutton_timepicker);
-
         urlImportBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //setContentView(R.layout.activity_pres);
+
                 Intent AlarmListActivity = new Intent(ImportActivity.this, AlarmListActivity.class);
                 startActivity(AlarmListActivity);
 
@@ -30,7 +29,6 @@ public class ImportActivity extends AppCompatActivity {
         TimePick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //setContentView(R.layout.activity_pres);
                 Intent AlarmConfig = new Intent(ImportActivity.this, AlarmConfig.class);
                 startActivity(AlarmConfig);
 

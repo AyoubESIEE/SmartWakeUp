@@ -19,6 +19,9 @@ import android.os.Vibrator;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
+/***
+ * Fichier Service permettant l'apparation de l'alarme et de la notification (Son, Vibration, Activity)
+ */
 public class AlarmService extends Service {
     private MediaPlayer mediaPlayer;
     private Vibrator vibrator;

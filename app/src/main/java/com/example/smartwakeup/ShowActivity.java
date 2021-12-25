@@ -44,7 +44,9 @@ public class ShowActivity extends AppCompatActivity {
     String[] date_2 = new String[3];
 
 
-
+    /***
+     * Fonction permettant le classement ordonnées de la liste des cours
+     */
     protected void editListe(){
         for (int i=0;i<list.size();i++) {
 
@@ -55,10 +57,10 @@ public class ShowActivity extends AppCompatActivity {
             date[2] = out[0].substring(6, 8); //jour evenement actuel
 
             Htime[0] = out[1].substring(0, 2);
-            int Hours = Integer.parseInt(Htime[0]) + 1;
+            int Hours = (Integer.parseInt(Htime[0]) + 1)%24;
             Htime[0] = String.valueOf(Hours);
             Htime[1] = out[1].substring(2, 4);
-            int Minutes = Integer.parseInt(Htime[1]);
+            int Minutes = (Integer.parseInt(Htime[1]))%60;
             Htime[2] = out[1].substring(4, 6);
 
 
@@ -67,6 +69,9 @@ public class ShowActivity extends AppCompatActivity {
         }
     }
 
+    /***
+     * Fonction permettant La création d'alarme en fonction des heures des cours
+     */
     protected void setAlarm(){
         int earliest_Hour;
         String Current_day;
@@ -94,7 +99,7 @@ public class ShowActivity extends AppCompatActivity {
             date[2] = out[0].substring(6, 8); //jour evenement actuel
 
             Htime[0] = out[1].substring(0, 2);
-            int Hours = Integer.parseInt(Htime[0]) + 1;
+            int Hours = (Integer.parseInt(Htime[0]) + 1)%24;
             Htime[0] = String.valueOf(Hours);
             Htime[1] = out[1].substring(2, 4);
             int Minutes = Integer.parseInt(Htime[1]);
@@ -104,7 +109,7 @@ public class ShowActivity extends AppCompatActivity {
             date_2[2] = out2[0].substring(6, 8); // jour evenement précédent
 
             Htime_2[0] = out2[1].substring(0, 2);
-            int Hours2 = Integer.parseInt(Htime_2[0]) + 1;
+            int Hours2 = (Integer.parseInt(Htime_2[0]) + 1)%24;
             Htime_2[0] = String.valueOf(Hours2);
 
             int compareDay = calendar.get(Calendar.DAY_OF_MONTH);
@@ -256,7 +261,9 @@ public class ShowActivity extends AppCompatActivity {
         Log.e(TAG,"///////////////////////////////////////////////////////////DATA/////////////////////////////////////////////////////////////");
         Log.e(TAG,"Child ID :" + root.child("vevent").toString());
         createAlarmViewModel = new ViewModelProvider(this).get(CreateAlarmViewModel.class);
-
+        /***
+         * On récupère les information sur les cours ,en provenance d'une base de données Firebase, dans une liste
+         */
         root.child("vevent").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -268,39 +275,6 @@ public class ShowActivity extends AppCompatActivity {
                     Model model = snapshot.child(String.valueOf(i)).getValue(Model.class);
                     list.add(model);
 
-
-//                    if (Hours < 12) {
-//
-//
-////                        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
-////                        intent.putExtra(AlarmClock.EXTRA_HOUR,Hours-1);
-////                        intent.putExtra(AlarmClock.EXTRA_MINUTES,Minutes);
-////                        startActivity(intent);
-//                        int alarmId = new Random().nextInt(Integer.MAX_VALUE);
-//
-//                        Alarm alarm = new Alarm(
-//                                alarmId,
-//                                Hours,
-//                                Minutes,
-//                                model.getSummary(),
-//                                System.currentTimeMillis(),
-//                                true,
-//                                false,
-//                                false,
-//                                false,
-//                                false,
-//                                false,
-//                                false,
-//                                false,
-//                                false
-//                        );
-//
-//                        createAlarmViewModel.insert(alarm);
-//
-//                        alarm.schedule(ShowActivity.this);
-//
-//
-//                    }
 
                 }
                 setAlarm();

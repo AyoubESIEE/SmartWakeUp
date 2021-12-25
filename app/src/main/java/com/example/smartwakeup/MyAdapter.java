@@ -32,22 +32,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-//        String[] Htime = new String[3];
-//        String[] date = new String[3];
-//
-//
-//        String[] out = model.getDtstart().split("T");
-//
-//        date[0] = out[0].substring(0,4);
-//        date[1] = out[0].substring(4,6);
-//        date[2] = out[0].substring(6,8);
-//
-//        Htime[0] = out[1].substring(0,2);
-//        int Hours = Integer.parseInt(Htime[0]) + 1;
-//        Htime[0] = String.valueOf(Hours);
-//        Htime[1] = out[1].substring(2,4);
-//        Htime[2] = out[1].substring(4,6);
-//
         Model model = mList.get(position);
         holder.summary.setText(model.getSummary());
         holder.dtstart.setText(model.getDtstart());

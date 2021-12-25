@@ -6,6 +6,9 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 import java.util.List;
 
+/***
+ * Fichier permettant le management de la base de données ROOM en utilisant les fonctions du Fichier d'interface "AlarmDAO"
+ */
 public class AlarmRepository {
     private AlarmDao alarmDao;
     private LiveData<List<Alarm>> alarmsLiveData;

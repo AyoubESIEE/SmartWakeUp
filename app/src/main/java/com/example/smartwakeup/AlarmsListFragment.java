@@ -21,11 +21,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+/***
+ * Fichier correspondant à la gestion des items dans la RecycleView qui contient la liste des alarmes
+ */
 public class AlarmsListFragment extends Fragment implements OnToggleAlarmListener {
     private AlarmRecyclerViewAdapter alarmRecyclerViewAdapter;
     private AlarmsListViewModel alarmsListViewModel;
     private RecyclerView alarmsRecyclerView;
-    private Button addAlarm;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,14 +53,9 @@ public class AlarmsListFragment extends Fragment implements OnToggleAlarmListene
         alarmsRecyclerView = view.findViewById(R.id.fragment_listalarms_recylerView);
         alarmsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         alarmsRecyclerView.setAdapter(alarmRecyclerViewAdapter);
-
-//        addAlarm = view.findViewById(R.id.fragment_listalarms_addAlarm);
-//        addAlarm.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //Navigation.findNavController(v).navigate(R.id.action_alarmsListFragment_to_createAlarmFragment);
-//            }
-//        });
+        /***
+         * Fonction qui lance une requête de suppression à la base de données lorsque l'item est swiped
+         */
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT |ItemTouchHelper.RIGHT){
 
@@ -81,6 +78,9 @@ public class AlarmsListFragment extends Fragment implements OnToggleAlarmListene
         return view;
     }
 
+    /***
+     *Fonction permetant d'inhiber une alarme ou non
+     */
     @Override
     public void onToggle(Alarm alarm) {
         if (alarm.isStarted()) {

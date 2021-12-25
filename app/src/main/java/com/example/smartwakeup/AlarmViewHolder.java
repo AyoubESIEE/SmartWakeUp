@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+/***
+ * Fichier qui gère la gestion des items présent et leurs affichages dans la liste d'alarme
+ */
 public class AlarmViewHolder extends RecyclerView.ViewHolder {
     private TextView alarmTime;
     private ImageView alarmRecurring;
@@ -37,14 +40,8 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
         alarmTime.setText(alarmText);
         alarmStarted.setChecked(alarm.isStarted());
 
-//        if (alarm.isRecurring()) {
-//            alarmRecurring.setImageResource(R.drawable.ic_repeat_black_24dp);
-//            alarmRecurringDays.setText(alarm.getRecurringDaysText());
-//        }
-//        else {
             alarmRecurring.setImageResource(R.drawable.ic_looks_one_black_24dp);
             alarmRecurringDays.setText("Once Off");
-//        }
 
         if (alarm.getTitle().length() != 0) {
             alarmTitle.setText(String.format("%s | %d/%d/%d | %d", alarm.getTitle(), alarm.getDay(),alarm.getMonth(),alarm.getYear(), alarm.getCreated()));
