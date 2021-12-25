@@ -28,7 +28,7 @@ public class AlarmConfig extends AppCompatActivity
         timeButton = findViewById(R.id.timeButton);
         importButton = findViewById(R.id.boutton_import_google);
 
-        /* La fonction onClick permet d'effectuer de passer à l'activité ShowActivity lorsqu'il
+        /* La fonction onClick permet d'effectuer le passage à l'activité ShowActivity lorsqu'il
         y a un click sur le boutton */
         importButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,9 +49,10 @@ public class AlarmConfig extends AppCompatActivity
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute)
             {
-                /* On récupère les les choix d'heure et minute de l'utilisateur dans des variables */
+                /* On récupère les choix d'heures et minutes de l'utilisateur dans des variables */
                 hour = selectedHour;
                 minute = selectedMinute;
+                /* On affiche sur le bouton, les choix de l'utilisateur dans le format indiqué en argument*/
                 timeButton.setText(String.format(Locale.getDefault(), "%02d:%02d",hour, minute));
             }
         };
